@@ -15,12 +15,19 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.draw.drawBehind
 
 // PUBLIC_INTERFACE
+/**
+ * Composable that sets the gym background image for app screens.
+ * Displays a semi-transparent overlay for readability of content.
+ * 
+ * Note: Image must reside in 'res/drawable' and reference in code omits extension.
+ */
 @Composable
 fun AppBackground(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
     Box(
         modifier = modifier
             .fillMaxSize()
     ) {
+        // Reference gym background image from drawable using the R class.
         Image(
             painter = painterResource(id = com.example.mainandroidfrontend.R.drawable.gymbackground),
             contentDescription = "Gym background",
