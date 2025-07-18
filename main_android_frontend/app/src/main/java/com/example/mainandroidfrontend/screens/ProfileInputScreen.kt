@@ -11,6 +11,8 @@ import com.example.mainandroidfrontend.navigation.Screen
 import com.example.mainandroidfrontend.viewmodel.ProfileViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 
+import com.example.mainandroidfrontend.ui.ProfileImage
+
 @Composable
 fun ProfileInputScreen(
     navController: NavController,
@@ -25,6 +27,9 @@ fun ProfileInputScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
+            // Show the profile picture at the top
+            ProfileImage()
+            Spacer(modifier = Modifier.height(16.dp))
             Text("Profile", style = MaterialTheme.typography.headlineMedium)
             Spacer(modifier = Modifier.height(16.dp))
             OutlinedTextField(

@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.mainandroidfrontend.navigation.Screen
 import com.example.mainandroidfrontend.ui.AppBackground
+import com.example.mainandroidfrontend.ui.ProfileImage
 
 @Composable
 fun DashboardScreen(navController: NavController) {
@@ -24,6 +25,9 @@ fun DashboardScreen(navController: NavController) {
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            // Show user's profile picture at top
+            ProfileImage()
+            Spacer(modifier = Modifier.height(10.dp))
             Text(
                 "Dashboard", 
                 style = MaterialTheme.typography.headlineMedium,
