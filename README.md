@@ -1,1 +1,3 @@
-# personal-fitness-companion-74104
+# Project Repository
+
+This is the initial README file for the project.
