@@ -13,12 +13,11 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.mainandroidfrontend.navigation.Screen
 
+import com.example.mainandroidfrontend.ui.AppBackground
+
 @Composable
 fun OnboardingScreen(navController: NavController) {
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = MaterialTheme.colorScheme.background,
-    ) {
+    AppBackground {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -29,7 +28,7 @@ fun OnboardingScreen(navController: NavController) {
             Text(
                 text = "Welcome to\nPersonal Fitness Companion",
                 style = MaterialTheme.typography.headlineMedium,
-                color = MaterialTheme.colorScheme.primary
+                color = MaterialTheme.colorScheme.onPrimary
             )
             Spacer(modifier = Modifier.height(24.dp))
             Text(

@@ -10,19 +10,21 @@ import androidx.navigation.NavController
 import com.example.mainandroidfrontend.viewmodel.CalorieViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 
+import com.example.mainandroidfrontend.ui.AppBackground
+
 @Composable
 fun CalorieCalcScreen(
     navController: NavController,
     calorieViewModel: CalorieViewModel = viewModel()
 ) {
-    Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+    AppBackground {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(28.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text("Calorie Requirement", style = MaterialTheme.typography.headlineMedium)
+            Text("Calorie Requirement", style = MaterialTheme.typography.headlineMedium, color = MaterialTheme.colorScheme.onPrimary)
             Spacer(modifier = Modifier.height(16.dp))
             OutlinedTextField(
                 value = calorieViewModel.height,
@@ -49,7 +51,7 @@ fun CalorieCalcScreen(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text("Gender:")
+                Text("Gender:", color = MaterialTheme.colorScheme.onPrimary)
                 Spacer(modifier = Modifier.width(10.dp))
                 DropdownMenuBox(
                     selectedOption = calorieViewModel.gender,
@@ -62,7 +64,7 @@ fun CalorieCalcScreen(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text("Activity Level:")
+                Text("Activity Level:", color = MaterialTheme.colorScheme.onPrimary)
                 Spacer(modifier = Modifier.width(10.dp))
                 DropdownMenuBox(
                     selectedOption = calorieViewModel.activityLevels[calorieViewModel.activityLevelIndex].first,

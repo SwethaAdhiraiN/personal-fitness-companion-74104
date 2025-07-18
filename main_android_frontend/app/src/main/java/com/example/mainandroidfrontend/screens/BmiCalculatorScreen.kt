@@ -10,19 +10,21 @@ import androidx.navigation.NavController
 import com.example.mainandroidfrontend.viewmodel.BmiViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 
+import com.example.mainandroidfrontend.ui.AppBackground
+
 @Composable
 fun BmiCalculatorScreen(
     navController: NavController,
     bmiViewModel: BmiViewModel = viewModel()
 ) {
-    Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+    AppBackground {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(28.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text("BMI Calculator", style = MaterialTheme.typography.headlineMedium)
+            Text("BMI Calculator", style = MaterialTheme.typography.headlineMedium, color = MaterialTheme.colorScheme.onPrimary)
             Spacer(modifier = Modifier.height(16.dp))
             OutlinedTextField(
                 value = bmiViewModel.heightCm,

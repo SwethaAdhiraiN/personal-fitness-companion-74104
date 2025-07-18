@@ -13,17 +13,22 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.mainandroidfrontend.navigation.Screen
+import com.example.mainandroidfrontend.ui.AppBackground
 
 @Composable
 fun DashboardScreen(navController: NavController) {
-    Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+    AppBackground {
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text("Dashboard", style = MaterialTheme.typography.headlineMedium)
+            Text(
+                "Dashboard", 
+                style = MaterialTheme.typography.headlineMedium,
+                color = MaterialTheme.colorScheme.onPrimary
+            )
             Spacer(modifier = Modifier.height(24.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),
