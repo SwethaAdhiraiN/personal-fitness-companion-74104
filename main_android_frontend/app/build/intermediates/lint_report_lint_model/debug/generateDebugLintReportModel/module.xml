@@ -1,0 +1,19 @@
+<lint-module
+    format="1"
+    dir="/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app"
+    name=":app"
+    type="APP"
+    maven="main_android_frontend:app:"
+    agpVersion="8.2.0"
+    buildFolder="build"
+    bootClassPath="/opt/android-sdk-linux/platforms/android-34/android.jar:/opt/android-sdk-linux/build-tools/34.0.0/core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-34"
+    neverShrinking="true">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="debug"/>
+</lint-module>

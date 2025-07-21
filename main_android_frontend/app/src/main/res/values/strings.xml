@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">main_android_frontend</string>
+    <string name="app_name">FitJourney</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="welcome">Welcome to FitJourney</string>
+    <string name="get_started">Get Started</string>
+    <string name="continue_text">Continue</string>
+    <string name="nutrition">Nutrition</string>
+    <string name="workout_planner">Workout Planner</string>
+    <string name="tracker">Tracker</string>
+    <string name="book_trainer">Book Trainer Counseling</string>
 </resources>

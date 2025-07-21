@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <TextView
+            android:id="@+id/tvDashboardHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Health Summary"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#1A73E8"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="9dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:text="BMI"
+                android:textColor="#888"
+                android:textSize="14sp"/>
+            <TextView
+                android:id="@+id/tvBmiValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--"
+                android:textStyle="bold"
+                android:textColor="#1A73E8"
+                android:textSize="22sp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="24dp"/>
+
+            <TextView
+                android:text="Calories (estd.)"
+                android:textColor="#888"
+                android:textSize="14sp"/>
+            <TextView
+                android:id="@+id/tvCalorieValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--"
+                android:textStyle="bold"
+                android:textColor="#FFB300"
+                android:textSize="22sp"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvDashboardGoals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#43A047"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Navigation buttons -->
+        <Button
+            android:id="@+id/btnMealSuggestions"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Meal Suggestions"
+            android:backgroundTint="#43A047"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="32dp"/>
+
+        <Button
+            android:id="@+id/btnWorkoutPlanner"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Workout Planner"
+            android:backgroundTint="#1A73E8"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="16dp"/>
+
+        <Button
+            android:id="@+id/btnTracker"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Progress Tracker"
+            android:backgroundTint="#FFB300"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="16dp"/>
+
+        <Button
+            android:id="@+id/btnCounseling"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Book Trainer Counseling"
+            android:backgroundTint="#1A73E8"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="16dp"/>
+    </LinearLayout>
+</ScrollView>

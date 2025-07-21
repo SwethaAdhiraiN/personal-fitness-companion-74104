@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.2.0" type="partial_results">
+    <map id="UnsafeIntentLaunch">
+            <map id="unprotected">
+                <entry
+                    name="com.example.mainandroidfrontend.MainActivity"
+                    boolean="true"/>
+            </map>
+    </map>
+    <map id="UnusedResources">
+        <location id="R.string.continue_text"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="7"
+            column="13"
+            startOffset="268"
+            endLine="7"
+            endColumn="33"
+            endOffset="288"/>
+        <location id="R.string.get_started"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="6"
+            column="13"
+            startOffset="216"
+            endLine="6"
+            endColumn="31"
+            endOffset="234"/>
+        <location id="R.string.workout_planner"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="9"
+            column="13"
+            startOffset="367"
+            endLine="9"
+            endColumn="35"
+            endOffset="389"/>
+        <location id="R.string.login"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="3"
+            column="13"
+            startOffset="72"
+            endLine="3"
+            endColumn="25"
+            endOffset="84"/>
+        <entry
+            name="model"
+            string="id[btnMealSuggestions(U),btnTracker(U),btnContinueProfile(U),tvBmiValue(U),welcomeText(U),btnWorkoutPlanner(U),etPassword(U),etEmail(U),tvDashboardGoals(U),btnCounseling(U),tvCalorieValue(U),tvDashboardHeader(D),btnGetStarted(U),etHeight(U),etGoals(U),logoImage(U),etWeight(U),etName(U),btnSubmit(U),tvSwitchMode(U)],layout[fragment_profile_input(U),fragment_trainer_counseling(U),fragment_auth(U),fragment_dashboard(U),fragment_workout_planner(U),activity_main(U),fragment_nutrition(U),fragment_tracker(U)],mipmap[ic_launcher_round(U),ic_launcher(U)],string[get_started(D),login(D),workout_planner(D),book_trainer(D),app_name(U),continue_text(D),nutrition(D),tracker(D),welcome(D),register(D)],style[Theme_AppCompat_Light_DarkActionBar(R)];14^d^10^e,16^11^7^6^12,19^1d^4^f;;;"/>
+        <location id="R.string.register"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="4"
+            column="13"
+            startOffset="112"
+            endLine="4"
+            endColumn="28"
+            endOffset="127"/>
+        <location id="R.string.tracker"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="10"
+            column="13"
+            startOffset="427"
+            endLine="10"
+            endColumn="27"
+            endOffset="441"/>
+        <location id="R.string.nutrition"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="8"
+            column="13"
+            startOffset="319"
+            endLine="8"
+            endColumn="29"
+            endOffset="335"/>
+        <location id="R.string.welcome"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="5"
+            column="13"
+            startOffset="158"
+            endLine="5"
+            endColumn="27"
+            endOffset="172"/>
+        <location id="R.string.book_trainer"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="11"
+            column="13"
+            startOffset="471"
+            endLine="11"
+            endColumn="32"
+            endOffset="490"/>
+    </map>
+
+</incidents>

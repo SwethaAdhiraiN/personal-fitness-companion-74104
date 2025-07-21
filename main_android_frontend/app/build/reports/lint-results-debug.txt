@@ -1,0 +1,330 @@
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/java/com/example/mainandroidfrontend/DashboardFragment.java:39: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+        ((TextView) v.findViewById(R.id.tvBmiValue)).setText(String.format("%.1f", bmi));
+                                                             ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "DefaultLocale":
+   Calling String#toLowerCase() or #toUpperCase() without specifying an
+   explicit locale is a common source of bugs. The reason for that is that
+   those methods will use the current locale on the user's device, and even
+   though the code appears to work correctly when you are developing the app,
+   it will fail in some locales. For example, in the Turkish locale, the
+   uppercase replacement for i is not I.
+
+   If you want the methods to just perform ASCII replacement, for example to
+   convert an enum name, call String#toUpperCase(Locale.US) instead. If you
+   really want to use the current locale, call
+   String#toUpperCase(Locale.getDefault()) instead.
+
+   https://developer.android.com/reference/java/util/Locale.html#default_locale
+
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/build.gradle:54: Warning: A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.1 [GradleDependency]
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/build.gradle:55: Warning: A newer version of com.google.android.material:material than 1.11.0 is available: 1.12.0 [GradleDependency]
+    implementation 'com.google.android.material:material:1.11.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/build.gradle:56: Warning: A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.1 [GradleDependency]
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/activity_main.xml:7: Warning: Possible overdraw: Root element paints background @android:color/white with a theme that also paints a background (inferred theme is @style/Theme.AppCompat.Light.DarkActionBar) [Overdraw]
+    android:background="@android:color/white">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_auth.xml:7: Warning: Possible overdraw: Root element paints background @android:color/white with a theme that also paints a background (inferred theme is @style/Theme.AppCompat.Light.DarkActionBar) [Overdraw]
+    android:background="@android:color/white">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_dashboard.xml:6: Warning: Possible overdraw: Root element paints background @android:color/white with a theme that also paints a background (inferred theme is @style/Theme.AppCompat.Light.DarkActionBar) [Overdraw]
+    android:background="@android:color/white">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_nutrition.xml:6: Warning: Possible overdraw: Root element paints background @android:color/white with a theme that also paints a background (inferred theme is @style/Theme.AppCompat.Light.DarkActionBar) [Overdraw]
+    android:background="@android:color/white"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_profile_input.xml:7: Warning: Possible overdraw: Root element paints background @android:color/white with a theme that also paints a background (inferred theme is @style/Theme.AppCompat.Light.DarkActionBar) [Overdraw]
+    android:background="@android:color/white">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_tracker.xml:6: Warning: Possible overdraw: Root element paints background @android:color/white with a theme that also paints a background (inferred theme is @style/Theme.AppCompat.Light.DarkActionBar) [Overdraw]
+    android:background="@android:color/white"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_trainer_counseling.xml:6: Warning: Possible overdraw: Root element paints background @android:color/white with a theme that also paints a background (inferred theme is @style/Theme.AppCompat.Light.DarkActionBar) [Overdraw]
+    android:background="@android:color/white"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_workout_planner.xml:6: Warning: Possible overdraw: Root element paints background @android:color/white with a theme that also paints a background (inferred theme is @style/Theme.AppCompat.Light.DarkActionBar) [Overdraw]
+    android:background="@android:color/white"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "Overdraw":
+   If you set a background drawable on a root view, then you should use a
+   custom theme where the theme background is null. Otherwise, the theme
+   background will be painted first, only to have your custom background
+   completely cover it; this is called "overdraw".
+
+   NOTE: This detector relies on figuring out which layouts are associated
+   with which activities based on scanning the Java code, and it's currently
+   doing that using an inexact pattern matching algorithm. Therefore, it can
+   incorrectly conclude which activity the layout is associated with and then
+   wrongly complain that a background-theme is hidden.
+
+   If you want your custom background on multiple pages, then you should
+   consider making a custom theme with your custom background and just using
+   that theme instead of a root element background.
+
+   Of course it's possible that your custom drawable is translucent and you
+   want it to be mixed with the background. However, you will get better
+   performance if you pre-mix the background with your drawable and use that
+   resulting image or color as a custom theme background instead.
+
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/values/strings.xml:3: Warning: The resource R.string.login appears to be unused [UnusedResources]
+    <string name="login">Login</string>
+            ~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/values/strings.xml:4: Warning: The resource R.string.register appears to be unused [UnusedResources]
+    <string name="register">Register</string>
+            ~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/values/strings.xml:5: Warning: The resource R.string.welcome appears to be unused [UnusedResources]
+    <string name="welcome">Welcome to FitJourney</string>
+            ~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/values/strings.xml:6: Warning: The resource R.string.get_started appears to be unused [UnusedResources]
+    <string name="get_started">Get Started</string>
+            ~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/values/strings.xml:7: Warning: The resource R.string.continue_text appears to be unused [UnusedResources]
+    <string name="continue_text">Continue</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/values/strings.xml:8: Warning: The resource R.string.nutrition appears to be unused [UnusedResources]
+    <string name="nutrition">Nutrition</string>
+            ~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/values/strings.xml:9: Warning: The resource R.string.workout_planner appears to be unused [UnusedResources]
+    <string name="workout_planner">Workout Planner</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/values/strings.xml:10: Warning: The resource R.string.tracker appears to be unused [UnusedResources]
+    <string name="tracker">Tracker</string>
+            ~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/values/strings.xml:11: Warning: The resource R.string.book_trainer appears to be unused [UnusedResources]
+    <string name="book_trainer">Book Trainer Counseling</string>
+            ~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png: Warning: The image ic_launcher.png varies significantly in its density-independent (dip) size across the various density versions: mipmap-hdpi/ic_launcher.png: 32x32 dp (48x48 px), mipmap-mdpi/ic_launcher.png: 48x48 dp (48x48 px), mipmap-xhdpi/ic_launcher.png: 24x24 dp (48x48 px), mipmap-xxhdpi/ic_launcher.png: 16x16 dp (48x48 px), mipmap-xxxhdpi/ic_launcher.png: 12x12 dp (48x48 px) [IconDipSize]
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png: Warning: The image ic_launcher_round.png varies significantly in its density-independent (dip) size across the various density versions: mipmap-hdpi/ic_launcher_round.png: 32x32 dp (48x48 px), mipmap-mdpi/ic_launcher_round.png: 48x48 dp (48x48 px), mipmap-xhdpi/ic_launcher_round.png: 24x24 dp (48x48 px), mipmap-xxhdpi/ic_launcher_round.png: 16x16 dp (48x48 px), mipmap-xxxhdpi/ic_launcher_round.png: 12x12 dp (48x48 px) [IconDipSize]
+
+   Explanation for issues of type "IconDipSize":
+   Checks the all icons which are provided in multiple densities, all compute
+   to roughly the same density-independent pixel (dip) size. This catches
+   errors where images are either placed in the wrong folder, or icons are
+   changed to new sizes but some folders are forgotten.
+
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png: Warning: The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png, ic_launcher.png, ic_launcher_round.png, ic_launcher.png, ic_launcher_round.png, ic_launcher.png, ic_launcher_round.png, ic_launcher.png, ic_launcher_round.png [IconDuplicates]
+
+   Explanation for issues of type "IconDuplicates":
+   If an icon is repeated under different names, you can consolidate and just
+   use one of the icons and delete the others to make your application
+   smaller. However, duplicated icons usually are not intentional and can
+   sometimes point to icons that were accidentally overwritten or accidentally
+   not updated.
+
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_auth.xml:9: Warning: Missing autofillHints attribute [Autofill]
+    <EditText
+     ~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_auth.xml:26: Warning: Missing autofillHints attribute [Autofill]
+    <EditText
+     ~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_auth.xml:43: Warning: Missing autofillHints attribute [Autofill]
+    <EditText
+     ~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_profile_input.xml:8: Warning: Missing autofillHints attribute [Autofill]
+    <EditText
+     ~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_profile_input.xml:23: Warning: Missing autofillHints attribute [Autofill]
+    <EditText
+     ~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_profile_input.xml:38: Warning: Missing autofillHints attribute [Autofill]
+    <EditText
+     ~~~~~~~~
+
+   Explanation for issues of type "Autofill":
+   Specify an autofillHints attribute when targeting SDK version 26 or higher
+   or explicitly specify that the view is not important for autofill. Your app
+   can help an autofill service classify the data correctly by providing the
+   meaning of each view that could be autofillable, such as views representing
+   usernames, passwords, credit card fields, email addresses, etc.
+
+   The hints can have any value, but it is recommended to use predefined
+   values like 'username' for a username or 'creditCardNumber' for a credit
+   card number. For a list of all predefined autofill hint constants, see the
+   AUTOFILL_HINT_ constants in the View reference at
+   https://developer.android.com/reference/android/view/View.html.
+
+   You can mark a view unimportant for autofill by specifying an
+   importantForAutofill attribute on that view or a parent view. See
+   https://developer.android.com/reference/android/view/View.html#setImportant
+   ForAutofill(int).
+
+   https://developer.android.com/guide/topics/text/autofill.html
+
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/activity_main.xml:10: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <ImageView
+     ~~~~~~~~~
+
+   Explanation for issues of type "ContentDescription":
+   Non-textual widgets like ImageViews and ImageButtons should use the
+   contentDescription attribute to specify a textual description of the widget
+   such that screen readers and other accessibility tools can adequately
+   describe the user interface.
+
+   Note that elements in application screens that are purely decorative and do
+   not provide any content or enable a user action should not have
+   accessibility content descriptions. In this case, set their descriptions to
+   @null. If your app's minSdkVersion is 16 or higher, you can instead set
+   these graphical elements' android:importantForAccessibility attributes to
+   no.
+
+   Note that for text fields, you should not set both the hint and the
+   contentDescription attributes since the hint will never be shown. Just set
+   the hint.
+
+   https://developer.android.com/guide/topics/ui/accessibility/apps#special-cases
+
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/java/com/example/mainandroidfrontend/AuthFragment.java:42: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                btnSubmit.setText("Login");
+                                  ~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/java/com/example/mainandroidfrontend/AuthFragment.java:43: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                tvSwitchMode.setText("Don't have an account? Register");
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/java/com/example/mainandroidfrontend/AuthFragment.java:46: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                btnSubmit.setText("Register");
+                                  ~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/java/com/example/mainandroidfrontend/AuthFragment.java:47: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                tvSwitchMode.setText("Already have an account? Login");
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "SetTextI18n":
+   When calling TextView#setText
+   * Never call Number#toString() to format numbers; it will not handle
+   fraction separators and locale-specific digits properly. Consider using
+   String#format with proper format specifications (%d or %f) instead.
+   * Do not pass a string literal (e.g. "Hello") to display text. Hardcoded
+   text can not be properly translated to other languages. Consider using
+   Android resource strings instead.
+   * Do not build messages by concatenating text chunks. Such messages can not
+   be properly translated.
+
+   https://developer.android.com/guide/topics/resources/localization.html
+
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/activity_main.xml:25: Warning: Hardcoded string "Welcome to FitJourney", should use @string resource [HardcodedText]
+        android:text="Welcome to FitJourney"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/activity_main.xml:39: Warning: Hardcoded string "Get Started", should use @string resource [HardcodedText]
+        android:text="Get Started"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_auth.xml:13: Warning: Hardcoded string "Full Name", should use @string resource [HardcodedText]
+        android:hint="Full Name"
+        ~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_auth.xml:30: Warning: Hardcoded string "Email", should use @string resource [HardcodedText]
+        android:hint="Email"
+        ~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_auth.xml:47: Warning: Hardcoded string "Password", should use @string resource [HardcodedText]
+        android:hint="Password"
+        ~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_auth.xml:65: Warning: Hardcoded string "Login", should use @string resource [HardcodedText]
+        android:text="Login"
+        ~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_auth.xml:78: Warning: Hardcoded string "Don't have an account? Register", should use @string resource [HardcodedText]
+        android:text="Don't have an account? Register"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_dashboard.xml:18: Warning: Hardcoded string "Your Health Summary", should use @string resource [HardcodedText]
+            android:text="Your Health Summary"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_dashboard.xml:31: Warning: Hardcoded string "BMI", should use @string resource [HardcodedText]
+                android:text="BMI"
+                ~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_dashboard.xml:38: Warning: Hardcoded string "--", should use @string resource [HardcodedText]
+                android:text="--"
+                ~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_dashboard.xml:46: Warning: Hardcoded string "Calories (estd.)", should use @string resource [HardcodedText]
+                android:text="Calories (estd.)"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_dashboard.xml:53: Warning: Hardcoded string "--", should use @string resource [HardcodedText]
+                android:text="--"
+                ~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_dashboard.xml:73: Warning: Hardcoded string "Meal Suggestions", should use @string resource [HardcodedText]
+            android:text="Meal Suggestions"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_dashboard.xml:82: Warning: Hardcoded string "Workout Planner", should use @string resource [HardcodedText]
+            android:text="Workout Planner"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_dashboard.xml:91: Warning: Hardcoded string "Progress Tracker", should use @string resource [HardcodedText]
+            android:text="Progress Tracker"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_dashboard.xml:100: Warning: Hardcoded string "Book Trainer Counseling", should use @string resource [HardcodedText]
+            android:text="Book Trainer Counseling"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_nutrition.xml:11: Warning: Hardcoded string "Nutrition", should use @string resource [HardcodedText]
+        android:text="Nutrition"
+        ~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_nutrition.xml:18: Warning: Hardcoded string "Personalized meal recommendations coming soon...", should use @string resource [HardcodedText]
+        android:text="Personalized meal recommendations coming soon..."
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_profile_input.xml:12: Warning: Hardcoded string "Height (cm)", should use @string resource [HardcodedText]
+        android:hint="Height (cm)"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_profile_input.xml:27: Warning: Hardcoded string "Weight (kg)", should use @string resource [HardcodedText]
+        android:hint="Weight (kg)"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_profile_input.xml:42: Warning: Hardcoded string "Fitness Goals", should use @string resource [HardcodedText]
+        android:hint="Fitness Goals"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_profile_input.xml:58: Warning: Hardcoded string "Continue", should use @string resource [HardcodedText]
+        android:text="Continue"
+        ~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_tracker.xml:11: Warning: Hardcoded string "Progressive Overload Tracker", should use @string resource [HardcodedText]
+        android:text="Progressive Overload Tracker"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_tracker.xml:18: Warning: Hardcoded string "Progress/regression analytics coming soon...", should use @string resource [HardcodedText]
+        android:text="Progress/regression analytics coming soon..."
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_trainer_counseling.xml:11: Warning: Hardcoded string "Book Trainer Counseling", should use @string resource [HardcodedText]
+        android:text="Book Trainer Counseling"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_trainer_counseling.xml:18: Warning: Hardcoded string "Book/pay for sessions - functionality coming soon...", should use @string resource [HardcodedText]
+        android:text="Book/pay for sessions - functionality coming soon..."
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_workout_planner.xml:11: Warning: Hardcoded string "Workout Planner", should use @string resource [HardcodedText]
+        android:text="Workout Planner"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/kavia/workspace/code-generation/personal-fitness-companion-74104/main_android_frontend/app/src/main/res/layout/fragment_workout_planner.xml:18: Warning: Hardcoded string "Level-based workouts coming soon...", should use @string resource [HardcodedText]
+        android:text="Level-based workouts coming soon..."
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "HardcodedText":
+   Hardcoding text attributes directly in layout files is bad for several
+   reasons:
+
+   * When creating configuration variations (for example for landscape or
+   portrait) you have to repeat the actual text (and keep it up to date when
+   making changes)
+
+   * The application cannot be translated to other languages by just adding
+   new translations for existing string resources.
+
+   There are quickfixes to automatically extract this hardcoded string into a
+   resource lookup.
+
+0 errors, 63 warnings
