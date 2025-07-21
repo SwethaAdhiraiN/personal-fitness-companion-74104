@@ -1,29 +1,3 @@
 <resources>
-    <string name="app_name">Personal Fitness Companion</string>
-    <string name="register">Register</string>
-    <string name="login">Login</string>
-    <string name="next">Next</string>
-    <string name="dashboard">Dashboard</string>
-    <string name="workout_plans">Workouts</string>
-    <string name="nutrition">Nutrition</string>
-    <string name="profile">Profile</string>
-    <string name="bmi_calculator">BMI Calculator</string>
-    <string name="calories_calculator">Calorie Requirement</string>
-    <string name="progress">Progress</string>
-    <string name="trainer">Trainer</string>
-    <string name="book_now">Book Now</string>
-    <string name="pay">Pay</string>
-    <string name="goal_weight">Goal Weight</string>
-    <string name="height_cm">Height (cm)</string>
-    <string name="weight_kg">Weight (kg)</string>
-    <string name="age">Age</string>
-    <string name="gender">Gender</string>
-    <string name="activity_level">Activity Level</string>
-    <string name="calculated_bmi">Calculated BMI</string>
-    <string name="calculate">Calculate</string>
-    <string name="logout">Logout</string>
-    <string name="back">Back</string>
-    <string name="beginner">Beginner</string>
-    <string name="intermediate">Intermediate</string>
-    <string name="expert">Expert</string>
+    <string name="app_name">main_android_frontend</string>
 </resources>
